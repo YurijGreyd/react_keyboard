@@ -11,20 +11,20 @@ export class App extends React.Component<P, State> {
     pressedKey: '',
   };
 
-  keyEvent = (event: KeyboardEvent) => {
+  handleKeyEvent = (event: KeyboardEvent) => {
     const eventKey = event.key;
 
     if (eventKey !== 'Meta') {
-      this.setState({ pressedKey: event.key });
+      this.setState({ pressedKey: eventKey });
     }
   };
 
   componentDidMount(): void {
-    document.addEventListener('keyup', this.keyEvent);
+    document.addEventListener('keyup', this.handleKeyEvent);
   }
 
   componentWillUnmount(): void {
-    document.removeEventListener('keyup', this.keyEvent);
+    document.removeEventListener('keyup', this.handleKeyEvent);
   }
 
   render() {
